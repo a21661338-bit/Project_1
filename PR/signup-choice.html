@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Choose Role</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="one.css">
+
+    <style>
+        /* PAGE ENTRY */
+        body {
+            animation: pageIn 0.9s ease forwards;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smaller container for role selection */
+        .role-container {
+            max-width: 500px;
+            padding: 40px 30px;
+            margin: 60px auto;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.05);
+
+            animation: containerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes containerPulse {
+            0% {
+                box-shadow: 0 0 18px rgba(0,234,255,0.25);
+            }
+            50% {
+                box-shadow: 0 0 38px rgba(0,234,255,0.85);
+            }
+            100% {
+                box-shadow: 0 0 18px rgba(0,234,255,0.25);
+            }
+        }
+
+        /* Title inside container */
+        .role-title {
+            color: #00eaff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Role buttons */
+        .role-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .role-btn {
+            padding: 20px 45px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #001f3f;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+
+            animation: autoPulse 2.8s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .role-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        @keyframes autoPulse {
+            0% {
+                box-shadow: 0 0 10px rgba(0,234,255,0.3);
+            }
+            50% {
+                box-shadow: 0 0 26px rgba(0,234,255,0.9);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(0,234,255,0.3);
+            }
+        }
+
+        /* CURSOR GLOW */
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle,
+                rgba(0,234,255,0.25),
+                transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Animated Blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <!-- Header -->
+    <header class="top-nav">
+        <h1>Faculty Feedback System</h1>
+        <nav>
+            <a href="one.html" class="nav-btn">Home</a>
+            <a href="about.html" class="nav-btn">About</a>
+            <a href="login-choice.html" class="nav-btn">Login</a>
+            <a href="signup-choice.html" class="nav-btn">Signup</a>
+        </nav>
+    </header>
+
+    <!-- Role Selection Section -->
+    <section class="role-container">
+        <h2 class="role-title">Select Your Role to Sign Up</h2>
+        <div class="role-section">
+            <a href="signup-student.html" class="role-btn">Student</a>
+        </div>
+    </section>
+
+    <!-- Cursor JS -->
+    <script>
+        const glow = document.querySelector('.cursor-glow');
+
+        document.addEventListener('mousemove', e => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>

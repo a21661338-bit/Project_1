@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1505682634904-d7c0d8f1bdfc");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  animation: bgShift 12s ease infinite;
+  color: #e0faff;
+}
+
+@keyframes bgShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(25deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+/* ================= CURSOR FOLLOW GLOW ================= */
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 234, 255, 0.35),
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+/* ================= CONTAINER ================= */
+
+.dashboard-container {
+  width: 420px;
+  padding: 45px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1;
+
+  animation:
+    fadeUp 1s ease forwards,
+    containerGlow 4s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes containerGlow {
+  0% {
+    box-shadow: 0 0 25px rgba(0,234,255,0.35);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(0,234,255,0.8);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0,234,255,0.35);
+  }
+}
+
+.dashboard-container h2 {
+  margin-bottom: 30px;
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0,234,255,0.7);
+}
+
+/* ================= DROPDOWNS ================= */
+
+select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #e0faff;
+  font-size: 15px;
+  outline: none;
+
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+select:hover,
+select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0,234,255,0.9);
+}
+
+select option {
+  background: #001f3f;
+  color: #e0faff;
+}
+
+/* ================= BUTTON (HOMEPAGE STYLE) ================= */
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 14px;
+  color: #001f3f;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255,255,255,0.45),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,234,255,1);
+}
+/* ================= HOMEPAGE STYLE BUTTON ================= */
+
+button {
+  position: relative;
+  overflow: hidden;
+  animation: autoPulse 2.8s infinite;
+  transition: transform 0.3s ease;
+}
+
+/* hover lift */
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* cursor-follow glow */
+button::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 234, 255, 0.45),
+    transparent 65%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+/* continuous pulse */
+@keyframes autoPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(0, 234, 255, 0.95);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.35);
+  }
+}
+body {
+  animation: pageFadeIn 0.8s ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

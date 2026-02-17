@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | Faculty Feedback System</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url("https://images.unsplash.com/photo-1535223289827-42f1e9919769");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e0e0e0;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(20, 20, 30, 0.88);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        h1 {
+            color: #00eaff;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #7df9ff;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .image-box {
+            flex: 1;
+            text-align: right;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            text-decoration: none;
+            color: #000;
+            background: #00eaff;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #00bcd4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-container">
+
+        <!-- LEFT SIDE CONTENT -->
+        <div class="content">
+            <h1>Faculty Feedback System</h1>
+
+            <h2>Project Overview</h2>
+            <p>
+                The Faculty Feedback System is a web-based application designed to
+                collect structured feedback from students regarding faculty members.
+                It helps institutions improve teaching quality using a digital and
+                transparent approach.
+            </p>
+
+            <h2>Purpose of the System</h2>
+            <p>
+                Manual feedback systems are time-consuming and inefficient. This
+                project provides a secure and automated solution for feedback
+                collection and management.
+            </p>
+
+            <h2>Users of the System</h2>
+            <ul>
+                <li><strong>Students:</strong> Log in and submit feedback</li>
+                <li><strong>Admin:</strong> Manage the system and feedback process</li>
+            </ul>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Frontend: HTML, CSS, JavaScript</li>
+                <li>Backend: Node.js, Express.js</li>
+                <li>Database: MongoDB</li>
+            </ul>
+
+            <h2>Current Status</h2>
+            <p>
+                The current version focuses on frontend design and backend
+                authentication. Feedback analytics and admin controls will be added
+                in future phases.
+            </p>
+
+            <a href="one.html" class="back-btn">⬅ Back to Home</a>
+        </div>
+
+        <!-- RIGHT SIDE IMAGE -->
+        <div class="image-box">
+            <img src="about.png" alt="Faculty Feedback Illustration">
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Node modules (backend)
+PR2/node_modules/
+
+# Log files
+PR2/*.log
+
+# Environment files
+PR2/.env
+
+# Build folder (frontend)
+PR/build/
+PR/node_modules/
+
+# Mac / Windows system files
+.DS_Store
+Thumbs.db

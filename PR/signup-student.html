@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Sign-Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+<div class="cursor-glow"></div>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="blob blob4"></div>
+
+    <div class="login-container">
+        <h1>Student Sign-Up</h1>
+
+<form id="studentSignupForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+    <button type="submit" class="login-btn">Sign Up</button>
+</form>
+
+
+        <p class="signup-text">
+            Already have an account?
+            <span class="signup-link" onclick="window.location='login.html?type=student'">Login</span>
+        </p>
+    </div>
+    <script src="signup-student.js"></script>
+<script>
+const cursorGlow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove", e => {
+  cursorGlow.style.left = e.clientX + "px";
+  cursorGlow.style.top = e.clientY + "px";
+});
+</script>
+
+</body>
+</html>

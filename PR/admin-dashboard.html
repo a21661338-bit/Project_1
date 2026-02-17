@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="admin-container">
+    <h2>Admin Dashboard</h2>
+
+    <div class="cards">
+      <div class="card"><h3>Total Feedback</h3><p id="totalFeedback">0</p></div>
+      <div class="card"><h3>Avg Rating</h3><p id="avgRating">0 ⭐</p></div>
+      <div class="card"><h3>Top Faculty</h3><p id="topFaculty">-</p></div>
+    </div>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Faculty</th>
+            <th>Subject</th>
+            <th>Avg Rating</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="facultyTableBody"></tbody>
+      </table>
+    </div>
+
+    <button id="viewActivityBtn" class="cta-btn">View Activity</button>
+    <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
+
+    <div class="admin-buttons">
+  <button onclick="goToManageQuestions()">Manage Questions</button>
+  <button onclick="goToManageSystem()">Manage System</button>
+  <button onclick="location.href='admin-faculty-view.html'">View Faculty</button>
+  <button onclick="generateReport()">Generate Report</button>
+</div>
+
+
+  </div>
+
+  <script>
+    const glow = document.querySelector('.cursor-glow');
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  </script>
+
+<script>
+function logoutAdmin() {
+  localStorage.removeItem("adminLoggedIn");
+  window.location.href = "admin-login.html";
+}
+
+function generateReport(){
+  window.location.href = "generate-report.html";
+}
+</script>
+
+<script src="admin-dashboard.js"></script>
+
+<script>
+document.getElementById("viewActivityBtn").addEventListener("click", () => {
+    window.location.href = "admin-activity.html";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Questions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin-questions.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Manage Feedback Questions</h1>
+        <button class="back-btn" onclick="goBack()">← Back to Dashboard</button>
+    </div>
+
+    <!-- Add Question Section -->
+    <div class="card">
+        <h2>Add New Question</h2>
+        <div class="input-group">
+            <input type="text" id="questionText" placeholder="Enter Question">
+            <button onclick="addQuestion()">Add Question</button>
+        </div>
+    </div>
+
+    <!-- All Questions Section -->
+    <div class="card">
+        <h2>All Questions</h2>
+        <div id="questionList" class="question-list"></div>
+    </div>
+
+</div>
+
+<script src="admin-manage.js"></script>
+
+</body>
+</html>

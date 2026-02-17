@@ -1,0 +1,235 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ================= HOMEPAGE CYAN BACKGROUND ================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+
+    color: #e0faff;
+}
+
+/* ================= BLOBS ================= */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.6;
+    animation: moveBlob 25s infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.blob1 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #00eaff, #0074d9);
+    top: -120px;
+    left: -120px;
+}
+
+.blob2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #00c6ff, #004e92);
+    top: 40%;
+    left: 55%;
+}
+
+.blob3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #7df9ff, #00bcd4);
+    top: 70%;
+    left: 15%;
+}
+
+@keyframes moveBlob {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(60px,-40px) scale(1.1); }
+    100% { transform: translate(-40px,60px) scale(0.9); }
+}
+
+/* ================= CURSOR FOLLOW GLOW ================= */
+.cursor-glow {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle,
+        rgba(0,234,255,0.35),
+        rgba(0,234,255,0.15),
+        transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    z-index: 2;
+}
+
+/* ================= LOGIN / CHOICE CONTAINER ================= */
+.choice-container,
+.login-container {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    padding: 42px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+
+    animation: borderGlow 3s ease-in-out infinite,
+               floatCard 6s ease-in-out infinite;
+}
+
+/* ================= HEADINGS ================= */
+.choice-container h1,
+.login-container h1 {
+    margin-bottom: 25px;
+    color: #00eaff;
+}
+
+/* ================= BUTTONS ================= */
+.choice-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.choice-btn,
+.login-btn {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #001f3f;
+    font-weight: bold;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    animation: buttonGlow 3s ease-in-out infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.choice-btn:hover,
+.login-btn:hover {
+    transform: translateY(-6px) scale(1.07);
+    box-shadow: 0 0 35px rgba(0,234,255,0.9);
+}
+
+/* ================= INPUTS ================= */
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-container input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.login-container input:focus {
+    box-shadow: 0 0 18px rgba(0,234,255,0.8);
+}
+
+/* ================= SIGNUP LINK ================= */
+.signup-text {
+    margin-top: 18px;
+}
+
+.signup-link {
+    color: #00eaff;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+.signup-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #00eaff;
+    transition: width 0.3s ease;
+}
+
+.signup-link:hover::after {
+    width: 100%;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 15px rgba(0,234,255,0.3); }
+    50% { box-shadow: 0 0 45px rgba(0,234,255,0.9); }
+    100% { box-shadow: 0 0 15px rgba(0,234,255,0.3); }
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(0,234,255,0.4),
+                    0 0 20px rgba(0,234,255,0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0,234,255,0.85),
+                    0 0 55px rgba(0,234,255,0.45);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0,234,255,0.4),
+                    0 0 20px rgba(0,234,255,0.2);
+    }
+}
+/* PAGE TRANSITION */
+body {
+  animation: pageIn 0.9s ease forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ================= WRONG CREDENTIALS SHAKE ================= */
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake-error {
+  animation: shake 0.4s ease;
+  box-shadow: 0 0 25px rgba(255, 60, 60, 0.8) !important;
+}
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Faculty Viewer</title>
+<link rel="stylesheet" href="admin-faculty-view.css">
+</head>
+<body>
+
+<h1>Faculty Records</h1>
+
+<div class="container">
+
+<div class="card">
+
+<label>Filter by Subject</label>
+<select id="subjectFilter">
+<option value="">All Subjects</option>
+</select>
+
+<label>Search Faculty</label>
+<input type="text" id="searchInput" placeholder="Enter faculty name...">
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Subject</th>
+<th>Added On</th>
+</tr>
+
+</thead>
+<tbody id="facultyTable"></tbody>
+</table>
+
+</div>
+
+<button class="back-btn" onclick="goBack()">⬅ Back to Dashboard</button>
+
+</div>
+
+<div class="cursor-glow"></div>
+
+<script src="admin-faculty-view.js"></script>
+
+<script>
+const glow=document.querySelector(".cursor-glow");
+document.addEventListener("mousemove",e=>{
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+});
+</script>
+
+</body>
+</html>

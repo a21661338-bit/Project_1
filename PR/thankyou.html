@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* ===== CONTAINER ===== */
+    .box {
+      background: rgba(255,255,255,0.08);
+      padding: 50px 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      /* PULSE GLOW ANIMATION */
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    /* Hover lift + extra glow */
+    .box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5),
+                  0 0 25px rgba(0, 234, 255, 0.35);
+    }
+
+    /* Pulse keyframes */
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 30px rgba(0,0,0,0.4),
+                    0 0 20px rgba(0,234,255,0.2);
+      }
+      100% {
+        box-shadow: 0 0 30px rgba(0,0,0,0.5),
+                    0 0 40px rgba(0,234,255,0.5);
+      }
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: #00eaff;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    /* ===== BUTTON ===== */
+    a {
+      text-decoration: none;
+      padding: 12px 28px;
+      background: #00eaff;
+      color: #000;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 20px rgba(0,234,255,0.4);
+      display: inline-block;
+    }
+
+    a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,234,255,0.6);
+      background: #00bcd4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Thank You! 🎉</h1>
+    <p>Your feedback has been submitted successfully.</p>
+    <a href="one.html">Back to Home</a>
+  </div>
+
+</body>
+</html>

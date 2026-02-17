@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Activity</title>
+
+  <style>
+  *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Lato', sans-serif;
+  }
+
+  body{
+      min-height:100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        url("https://images.unsplash.com/photo-1505682634904-d7c0d8f1bdfc");
+      background-size:cover;
+      background-position:center;
+      color:#ffffff;
+      overflow-x:hidden;
+  }
+
+  /* blobs */
+  .blob{
+      position:absolute;
+      width:300px;
+      height:300px;
+      background:rgba(0,234,255,0.15);
+      filter:blur(90px);
+      border-radius:50%;
+      animation:float 8s infinite alternate;
+  }
+
+  .blob1{ top:10%; left:15%; }
+  .blob2{ bottom:15%; right:20%; animation-delay:2s; }
+  .blob3{ top:50%; right:10%; animation-delay:4s; }
+
+  @keyframes float{
+      from{ transform:translateY(0); }
+      to{ transform:translateY(-40px); }
+  }
+
+  /* header */
+  .top-nav{
+      text-align:center;
+      padding:25px;
+  }
+
+  .top-nav h1{
+      color:#00eaff;
+      text-shadow:0 0 15px rgba(0,234,255,0.8);
+  }
+
+  /* layout */
+  .activity-container{
+      width:95%;
+      max-width:1300px;
+      margin:20px auto;
+      display:flex;
+      gap:25px;
+      z-index:10;
+  }
+
+  /* sidebar */
+  .activity-sidebar{
+      width:250px;
+      padding:25px;
+      border-radius:20px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      border:1px solid rgba(0,234,255,0.25);
+      box-shadow:0 0 20px rgba(0,234,255,0.2);
+  }
+
+  .activity-sidebar h2{
+      color:#00eaff;
+      margin-bottom:25px;
+  }
+
+  .side-btn{
+      padding:14px;
+      margin-bottom:15px;
+      border-radius:12px;
+      text-align:center;
+      cursor:pointer;
+      background: rgba(255,255,255,0.05);
+      border:1px solid rgba(0,234,255,0.2);
+      color:#ffffff;
+      transition:0.3s;
+  }
+
+  .side-btn:hover{
+      transform:translateY(-3px) scale(1.02);
+      box-shadow:0 0 15px rgba(0,234,255,0.5);
+  }
+
+  /* content */
+  .activity-content{
+      flex:1;
+  }
+
+  .activity-title{
+      font-size:2rem;
+      margin-bottom:20px;
+      color:#00eaff;
+  }
+
+  /* activity card */
+  .activity-card{
+      padding:18px;
+      margin-bottom:15px;
+      border-radius:16px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border:1px solid rgba(0,234,255,0.25);
+      box-shadow:0 0 18px rgba(0,234,255,0.2);
+      transition:0.3s;
+  }
+
+  .activity-card:hover{
+      transform:translateY(-3px) scale(1.02);
+      box-shadow:0 0 25px rgba(0,234,255,0.6);
+  }
+
+  /* TEXT */
+  .activity-name{
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:5px;
+      color:#ffffff;
+  }
+
+  .activity-role{
+      margin-bottom:5px;
+      color:#d9faff;
+  }
+
+  .activity-email{
+      font-size:14px;
+      margin-bottom:5px;
+      color:#b3f3ff;
+  }
+
+  .activity-time{
+      font-size:13px;
+      color:#8deaff;
+  }
+
+  /* cursor glow */
+  .cursor-glow{
+      position:fixed;
+      width:180px;
+      height:180px;
+      background: radial-gradient(circle, rgba(0,234,255,0.35), transparent 70%);
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+  }
+  </style>
+</head>
+
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<div class="top-nav">
+  <h1>Admin Activity Panel</h1>
+</div>
+
+<div class="activity-container">
+
+  <div class="activity-sidebar">
+      <h2>Logs</h2>
+
+      <div class="side-btn" onclick="loadData('login')">
+          Login Info
+      </div>
+
+      <div class="side-btn" onclick="loadData('signup')">
+          Signup Info
+      </div>
+
+      <div class="side-btn" onclick="goBack()">
+          ← Back to Dashboard
+      </div>
+  </div>
+
+  <div class="activity-content">
+      <div class="activity-title" id="title">
+          Login Activity
+      </div>
+
+      <div id="list"></div>
+  </div>
+
+</div>
+
+<script>
+async function loadData(type){
+  document.getElementById("title").innerText =
+    type === "login" ? "Login Activity" : "Signup Activity";
+
+  const res = await fetch(`http://localhost:5000/api/activity/${type}`);
+  const data = await res.json();
+
+  const list=document.getElementById("list");
+  list.innerHTML="";
+
+  data.forEach(item=>{
+    list.innerHTML+=`
+      <div class="activity-card">
+        <div class="activity-name">${item.name}</div>
+        <div class="activity-role">${item.role}</div>
+        <div class="activity-email">${item.email}</div>
+        <div class="activity-time">
+          ${new Date(item.time).toLocaleString()}
+        </div>
+      </div>
+    `;
+  });
+}
+
+/* BACK BUTTON FUNCTION */
+function goBack(){
+  window.location.href = "admin-dashboard.html";
+}
+
+loadData("login");
+</script>
+
+<div class="cursor-glow"></div>
+<script>
+document.addEventListener("mousemove", e=>{
+  const glow=document.querySelector(".cursor-glow");
+  glow.style.left=e.clientX+"px";
+  glow.style.top=e.clientY+"px";
+});
+</script>
+
+</body>
+</html>

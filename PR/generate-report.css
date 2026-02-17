@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1505682634904-d7c0d8f1bdfc");
+  background-size: cover;
+  background-position: center;
+  color: #e0faff;
+  overflow-x: hidden;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0,234,255,0.35), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(0,234,255,0.15);
+  filter: blur(90px);
+  border-radius: 50%;
+  animation: float 8s infinite alternate;
+}
+
+.blob1 { top: 10%; left: 15%; }
+.blob2 { bottom: 15%; right: 20%; animation-delay: 2s; }
+.blob3 { top: 50%; right: 10%; animation-delay: 4s; }
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40px); }
+}
+
+.container {
+  width: 900px;
+  padding: 40px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,234,255,0.3);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0,234,255,0.8);
+}
+
+.card {
+  background: rgba(0,0,0,0.5);
+  padding: 25px;
+  border-radius: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #bff9ff;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.6);
+  color: #e0faff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  color: #00eaff;
+}
+
+tbody tr:hover {
+  background: rgba(0,234,255,0.1);
+}
+
+.cta-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00ffcc, #00c6ff);
+  color: black;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+}
+
+.back-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Login Type</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="home-bg">
+    <!-- Blob Background -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+        <div class="cursor-glow"></div>
+
+    <div class="choice-container">
+        <h1>Select Login Type</h1>
+       <div class="choice-buttons">
+    <a href="login.html?type=student" class="choice-btn glow-btn">Student</a>
+    <a href="admin-login.html" class="choice-btn glow-btn">Admin</a>
+</div>
+
+    </div>
+
+   <script>
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove', (e) => {
+    if (!glow) return;
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+});
+
+/* Button glow follows cursor */
+document.querySelectorAll('.choice-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        btn.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+});
+</script>
+
+
+</body>
+</html>

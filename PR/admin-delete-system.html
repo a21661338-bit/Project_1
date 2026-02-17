@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Delete System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-delete.css">
+</head>
+
+<body>
+
+<!-- BLOBS BACKGROUND -->
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<h1>Delete System</h1>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Delete Faculty</h2>
+
+<label>Select Subject</label>
+<select id="deleteFacultySubject">
+<option value="">-- Select Subject --</option>
+</select>
+
+<label>Select Faculty</label>
+<select id="deleteFaculty">
+<option value="">-- Select Faculty --</option>
+</select>
+
+<button id="deleteFacultyBtn" class="delete-btn">
+Delete Faculty
+</button>
+
+<p id="deleteFacultyMessage"></p>
+
+<hr>
+
+<h2>Delete Subject</h2>
+
+<label>Select Subject</label>
+<select id="deleteSubject">
+<option value="">-- Select Subject --</option>
+</select>
+
+<button id="deleteSubjectBtn" class="delete-btn">
+Delete Subject
+</button>
+
+<p id="deleteSubjectMessage"></p>
+
+</div>
+
+<button onclick="goBack()" class="back-btn">
+⬅ Back to Manage Page
+</button>
+
+</div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow"></div>
+
+<script>
+const glow=document.querySelector(".cursor-glow");
+document.addEventListener("mousemove",e=>{
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+});
+</script>
+
+<script src="admin-delete.js"></script>
+
+</body>
+</html>

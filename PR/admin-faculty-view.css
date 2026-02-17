@@ -1,0 +1,44 @@
+/* USE YOUR SAME THEME BASE */
+@import url("admin-delete.css");
+
+/* TABLE */
+table{
+width:100%;
+margin-top:15px;
+border-collapse:collapse;
+overflow:hidden;
+border-radius:12px;
+}
+
+thead{
+background:linear-gradient(135deg,#0074d9,#00eaff);
+color:#001f3f;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+}
+
+tbody tr{
+background:rgba(255,255,255,0.05);
+transition:.3s;
+}
+
+tbody tr:hover{
+background:rgba(0,234,255,0.1);
+transform:scale(1.01);
+}
+
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+input:focus{
+box-shadow:0 0 15px rgba(0,234,255,0.7);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+
+  <div class="dashboard-container">
+    <h2>Select Course, Subject & Faculty</h2>
+
+    <select id="course">
+      <option value="">Select Course</option>
+    </select>
+
+    <select id="subject">
+      <option value="">Select Subject</option>
+    </select>
+
+    <select id="faculty">
+      <option value="">Select Faculty</option>
+    </select>
+
+    <button id="giveFeedback">Give Feedback</button>
+  </div>
+
+  <script src="dashboard.js"></script>
+  <script>
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("mousemove", e => {
+    const rect = btn.getBoundingClientRect();
+    btn.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    btn.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});
+</script>
+<script>
+const cursorGlow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove", e => {
+  cursorGlow.style.left = e.clientX + "px";
+  cursorGlow.style.top = e.clientY + "px";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="generate-report.css">
+</head>
+<body>
+
+<div class="cursor-glow"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<div class="container">
+  <h2>Generate Faculty Report</h2>
+
+  <div class="card">
+    <label>Select Faculty</label>
+    <select id="facultyFilter">
+      <option value="">All Faculties</option>
+    </select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Faculty</th>
+          <th>Subject</th>
+          <th>Avg Rating</th>
+          <th>Status</th>
+          <th>Date Added</th>
+          <th>Course</th>
+          <th>Total Feedback</th>
+        </tr>
+      </thead>
+      <tbody id="reportTableBody"></tbody>
+    </table>
+
+    <button id="generatePdfBtn" class="cta-btn">Generate PDF</button>
+  </div>
+
+  <button class="back-btn" onclick="goBack()">⬅ Back to Dashboard</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script src="generate-report.js"></script>
+
+<script>
+const glow = document.querySelector(".cursor-glow");
+document.addEventListener("mousemove", e => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+</script>
+
+</body>
+</html>

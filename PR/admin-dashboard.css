@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1505682634904-d7c0d8f1bdfc");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  animation: bgShift 12s ease infinite;
+  color: #e0faff;
+  overflow-x: hidden;
+}
+
+/* background animation */
+@keyframes bgShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(25deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+/* cursor glow */
+.cursor-glow {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0,234,255,0.35), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* blobs */
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(0,234,255,0.15);
+  filter: blur(90px);
+  border-radius: 50%;
+  animation: float 8s infinite alternate;
+}
+
+.blob1 { top: 10%; left: 15%; }
+.blob2 { bottom: 15%; right: 20%; animation-delay: 2s; }
+.blob3 { top: 50%; right: 10%; animation-delay: 4s; }
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40px); }
+}
+
+/* container */
+.admin-container {
+  width: 900px;
+  padding: 40px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,234,255,0.3);
+  animation: fadeUp 1s ease forwards;
+  z-index: 1;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0,234,255,0.8);
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: rgba(0,0,0,0.5);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  animation: autoPulse 2.8s infinite;
+}
+
+.card h3 {
+  color: #00eaff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* glow pulse */
+@keyframes autoPulse {
+  0% { box-shadow: 0 0 10px rgba(0,234,255,0.3); }
+  50% { box-shadow: 0 0 26px rgba(0,234,255,0.9); }
+  100% { box-shadow: 0 0 10px rgba(0,234,255,0.3); }
+}
+
+/* table */
+.table-box {
+  overflow-x: auto;
+  margin-bottom: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px;
+  text-align: center;
+}
+
+th {
+  color: #00eaff;
+}
+
+tbody tr:hover {
+  background: rgba(0,234,255,0.1);
+}
+
+.good { color: #00ff9d; }
+.warn { color: #ffcc00; }
+
+/* logout button */
+.logout-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  animation: autoPulse 2.8s infinite;
+}
+
+.logout-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* view activity button */
+.cta-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #00ffcc, #00c6ff);
+  color: black;
+  animation: autoPulse 2.8s infinite;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ADMIN BUTTONS FIXED GRID */
+.admin-buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.admin-buttons button {
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  animation: autoPulse 2.8s infinite; /* keeps glow pulse */
+}
+
+.admin-buttons button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-3px);
+}
