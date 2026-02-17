@@ -9,7 +9,7 @@ const faculty = urlParams.get("faculty");
 // ---------------- LOAD QUESTIONS ----------------
 async function loadQuestions() {
   try {
-    const res = await fetch("http://localhost:5000/api/questions");
+    const res = await fetch("/api/questions");
     const questions = await res.json();
 
     questions.forEach((q, index) => {
@@ -72,7 +72,7 @@ form.addEventListener("submit", async (e) => {
   console.log("Sending feedback:", feedbackData);
 
   try {
-    const res = await fetch("http://localhost:5000/api/feedback", {
+    const res = await fetch("/api/feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(feedbackData)

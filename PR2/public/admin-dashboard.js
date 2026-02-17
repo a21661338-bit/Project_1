@@ -1,7 +1,7 @@
 
 // ---------------- DASHBOARD LOGIC ----------------
 
-const API_BASE = "http://localhost:5000/api/admin";
+const API_BASE = "/api/admin";
 const tableBody = document.getElementById("facultyTableBody");
 
 document.addEventListener("DOMContentLoaded", () => {

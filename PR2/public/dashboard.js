@@ -3,7 +3,7 @@ const subjectSelect = document.getElementById("subject");
 const facultySelect = document.getElementById("faculty");
 
 // Use the same BASE_URL as your admin-manage.js
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "/api";
 
 /* ================= LOAD COURSES ================= */
 fetch(`${BASE_URL}/courses`) // Fixed path: removed /admin/
@@ -72,5 +72,5 @@ document.getElementById("giveFeedback").addEventListener("click", () => {
   }
 
   window.location.href =
-    `http://127.0.0.1:5500/feedback-form.html?course=${course}&subject=${subject}&faculty=${faculty}`;
+    `/feedback-form.html?course=${course}&subject=${subject}&faculty=${faculty}`;
 });
