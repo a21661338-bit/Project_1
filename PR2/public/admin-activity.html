@@ -203,7 +203,7 @@ async function loadData(type){
   document.getElementById("title").innerText =
     type === "login" ? "Login Activity" : "Signup Activity";
 
-  const res = await fetch(`http://localhost:5000/api/activity/${type}`);
+ const res = await fetch(`https://project-1-ds03.onrender.com/api/activity/${type}`);
   const data = await res.json();
 
   const list=document.getElementById("list");
